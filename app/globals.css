@@ -77,38 +77,34 @@
 
 @layer components {
   .ambient-background {
-    position: absolute;
-    inset: 0 0 auto;
-    height: 68rem;
+    position: fixed;
+    inset: 0;
+    height: 100svh;
     overflow: hidden;
     z-index: -1;
     pointer-events: none;
-    mask-image: linear-gradient(#000 0%, #000 22%, transparent 90%);
+    mask-image: linear-gradient(#000 0%, #000 35%, transparent 100%);
   }
   .ambient-background::before,
   .ambient-background::after {
     content: "";
     position: absolute;
-    inset: -12%;
+    inset: -16%;
   }
   .ambient-background::before {
     background:
-      radial-gradient(ellipse at 80% 13%, rgb(233 239 162 / 0.85), transparent 52%),
-      radial-gradient(ellipse at 5% 5%, rgb(194 216 168 / 0.7), transparent 55%),
-      radial-gradient(ellipse at 94% 0%, rgb(187 221 188 / 0.8), transparent 54%),
-      radial-gradient(ellipse at 31% 44%, rgb(208 213 213 / 0.6), transparent 50%),
-      radial-gradient(ellipse at 85% 45%, rgb(239 217 211 / 0.3), transparent 55%);
-    animation: ambient-drift 24s ease-in-out infinite alternate;
+      radial-gradient(ellipse at 78% 20%, #e9efa9, transparent 65%),
+      radial-gradient(ellipse at 8% 12%, #bddbb9, transparent 68%),
+      linear-gradient(125deg, #c6ddc5, #d2e2db 45%, #e9e9c5);
+    animation: ambient-drift 18s ease-in-out infinite alternate;
   }
   .ambient-background::after {
     background:
-      radial-gradient(ellipse at 15% 4%, rgb(239 222 167 / 0.9), transparent 58%),
-      radial-gradient(ellipse at 78% 10%, rgb(187 214 184 / 0.95), transparent 60%),
-      radial-gradient(ellipse at 34% 38%, rgb(239 206 210 / 0.75), transparent 57%),
-      radial-gradient(ellipse at 93% 48%, rgb(232 217 187 / 0.7), transparent 55%),
-      linear-gradient(rgb(233 225 208 / 0.6), transparent 85%);
+      radial-gradient(ellipse at 12% 22%, #edcbd4, transparent 66%),
+      radial-gradient(ellipse at 85% 12%, #bcd7bd, transparent 64%),
+      linear-gradient(115deg, #e7d0d6, #efdfa9 52%, #d1dec6);
     opacity: 0;
-    animation: ambient-drift 31s ease-in-out infinite alternate-reverse, ambient-colors 18s ease-in-out infinite;
+    animation: ambient-drift 23s ease-in-out -6s infinite alternate-reverse, ambient-palette-shift 14s ease-in-out -3s infinite;
   }
   .skip-link {
     position: fixed;
@@ -287,9 +283,9 @@
   from { transform: translate3d(-5%, -3%, 0) scale(1.02); }
   to { transform: translate3d(6%, 4%, 0) scale(1.12); }
 }
-@keyframes ambient-colors {
+@keyframes ambient-palette-shift {
   0%, 100% { opacity: 0; }
-  50% { opacity: 1; }
+  45%, 55% { opacity: 1; }
 }
 @keyframes star-float {
   0%, 100% { transform: translate3d(0, 3px, 0) rotate(-9deg) scale(0.97); }

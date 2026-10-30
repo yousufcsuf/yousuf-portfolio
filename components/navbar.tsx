@@ -7,8 +7,8 @@ import { useSyncExternalStore } from "react";
 const links = [
   { label: "Work", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Play", href: "/play" },
-  { label: "Notes", href: "/notes" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "Experience", href: "/experience" },
   { label: "Contact", href: "/#contact" },
 ] as const;
 
@@ -30,7 +30,7 @@ export function Navbar() {
   const scrolled = useSyncExternalStore(subscribeToScroll, isScrolled, serverScrollSnapshot);
 
   return (
-    <header id="top" className="site-header">
+    <header id="top" className={`site-header${scrolled ? " is-scrolled" : ""}`}>
       <nav aria-label="Main navigation" className={`site-nav${scrolled ? " is-scrolled" : ""}`}>
         <ul>{links.map(({ label, href }) => (
           <li key={label}>

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import "lenis/dist/lenis.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { ScrollExperience } from "@/components/scroll-experience";
 
 const bodyFont = localFont({
   src: "./fonts/gt.woff",
@@ -30,10 +32,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${bodyFont.variable} ${displayFont.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <div className="ambient-background" aria-hidden="true" />
+        <ScrollExperience />
         <a href="#main" className="skip-link">Skip to content</a>
         <Navbar />
         {children}

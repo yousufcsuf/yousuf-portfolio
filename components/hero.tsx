@@ -1,4 +1,6 @@
-﻿import { Star } from "./star";
+import { Star } from "./star";
+
+import { HeroInterests } from "./hero-interests";
 
 export function Hero() {
   return (
@@ -8,8 +10,8 @@ export function Hero() {
         <Star className="hero-spark hero-spark-right" />
         <Star className="hero-spark hero-spark-left" />
       </div>
-      <p className="hero-description">I build reliable software, intelligent applications, and thoughtful digital experiences.</p>
-      <div className="hero-actions"><a href="#work" className="button">Explore Work <span aria-hidden="true">↗</span></a><a href="#contact" className="button button-outline">Get in Touch <span aria-hidden="true">↗</span></a></div>
+      <HeroInterests />
+      <div className="hero-actions"><a href="#work" className="button">Explore Work <span aria-hidden="true">↗</span></a><a href="/YousufAbdullahBorna_Resume.pdf" download="YousufAbdullahBorna_Resume.pdf" className="button button-outline resume-download"><span>Download Resume</span><span className="resume-download-arrow" aria-hidden="true">↓</span></a></div>
     </section>
   );
 }

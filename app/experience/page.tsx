@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHeading } from "@/components/page-heading";
+import { ExperienceTimeline } from "@/components/experience-timeline";
 
 export const metadata: Metadata = { title: "Experience — Yousuf" };
 
@@ -9,17 +9,9 @@ export default function Experience() {
     <main id="main" tabIndex={-1}>
       <PageHeading
         title="Experience."
-        description="Engineering intelligent systems. Thoughtful software, from idea to implementation."
+        description="AI research, software engineering, and Salesforce development. A little of the journey so far."
       />
-      <section className="notes-list page-container" aria-labelledby="experience-heading">
-        <article className="note-card">
-          <div>
-            <h2 id="experience-heading">Professional background</h2>
-            <p>Professional experience and career details will be added here.</p>
-            <Link href="/#work" className="text-link">Explore my projects ↗</Link>
-          </div>
-        </article>
-      </section>
+      <ExperienceTimeline />
     </main>
   );
 }

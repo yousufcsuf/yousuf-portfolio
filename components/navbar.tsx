@@ -9,7 +9,6 @@ const links = [
   { label: "About", href: "/about" },
   { label: "Blogs", href: "/blogs" },
   { label: "Experience", href: "/experience" },
-  { label: "Contact", href: "/#contact" },
 ] as const;
 
 function subscribeToScroll(onChange: () => void) {
@@ -27,11 +26,6 @@ function isScrolled() {
   return window.scrollY > 48;
 }
 
-function isContactVisible() {
-  const contact = document.getElementById("contact");
-  return Boolean(contact && contact.getBoundingClientRect().top < window.innerHeight * 0.55);
-}
-
 function serverScrollSnapshot() {
   return false;
 }
@@ -39,8 +33,7 @@ function serverScrollSnapshot() {
 export function Navbar() {
   const pathname = usePathname();
   const scrolled = useSyncExternalStore(subscribeToScroll, isScrolled, serverScrollSnapshot);
-  const contactVisible = useSyncExternalStore(subscribeToScroll, isContactVisible, serverScrollSnapshot);
-  const activeHref = pathname === "/" && contactVisible ? "/#contact" : pathname;
+  const activeHref = pathname;
   const listRef = useRef<HTMLUListElement>(null);
   const indicatorRef = useRef<HTMLLIElement>(null);
   const linkRefs = useRef(new Map<string, HTMLAnchorElement>());
@@ -92,9 +85,9 @@ export function Navbar() {
                 }}
                 onNavigate={() => moveIndicator(href)}
                 className={activeHref === href ? "nav-featured" : undefined}
-                aria-current={activeHref === href ? (href === "/#contact" ? "location" : "page") : undefined}
+                aria-current={activeHref === href ? "page" : undefined}
               >
-                <span className="nav-label">{label}{label === "Work" && <span className="work-slash" aria-hidden="true">/</span>}</span>
+                <span className="nav-label">{label}</span>
               </Link>
             </li>
           ))}

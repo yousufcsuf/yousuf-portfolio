@@ -1,6 +1,6 @@
 # Adding project screenshots
 
-1. Create `docuflow-ai/` or `reliantops-nexus/` here and add your PNG, JPG, or WebP screenshots.
+1. Create `docuflow-ai/`, `agentfort/`, `inferos/`, or `clinical-documentation/` here and add your PNG, JPG, or WebP screenshots.
 2. Open `data/projects.ts` and fill the matching project's `screenshots` array:
 
 ```ts
@@ -24,4 +24,7 @@ consistent appearance, use landscape images of similar dimensions (around 1600px
 
 Real screenshots automatically replace the labelled concept studies. Arrow and dot
 controls appear when there is more than one image. Visitors can also use Left/Right,
-Home/End, or swipe on touchscreens. Slides never advance automatically.
+Home/End, or swipe on touchscreens. Previews glide horizontally every 4.5 seconds
+while visible. Hovering pauses them temporarily; using the controls or entering
+with keyboard focus pauses them until Play is selected. Autoplay also pauses in
+hidden browser tabs and is disabled for reduced-motion preferences.
